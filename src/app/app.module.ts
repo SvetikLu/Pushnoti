@@ -4,8 +4,12 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
+//plugins
+import { OneSignal } from '@ionic-native/onesignal';
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { PushnotificationProvider } from '../providers/pushnotification/pushnotification';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,9 @@ import { HomePage } from '../pages/home/home';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    OneSignal,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    PushnotificationProvider
   ]
 })
 export class AppModule {}
